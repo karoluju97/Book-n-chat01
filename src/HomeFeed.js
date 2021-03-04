@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./HomeFeed.css"
 import CreateIcon from '@material-ui/icons/Create';
 import InputOption from './InputOption'
@@ -8,6 +8,13 @@ import Post from './Post'
 
 
 function HomeFeed() {
+
+    const [posts, setPosts] = useState([]);
+
+    const sendPost = e => {
+        e.preventDefault();
+    }
+
     return (
         <div className='homeFeed'>
             <div className='homeFeed_inputContainer'>
@@ -15,7 +22,7 @@ function HomeFeed() {
                     <CreateIcon />
                     <form>
                         <input type="text"/>
-                        <button type="submit">Post</button>
+                        <button onClick={sendPost} type="submit">Post</button>
                     </form>
                 </div>
                 <div className="homeFeed_inputOption">
@@ -25,8 +32,11 @@ function HomeFeed() {
             </div>
 
             {/* Posts */}
+            {posts.map((post) => (
+                <Post />
+            ))}
             <Post name='karol' description='this is a test' message='hello'/>
-            
+
         </div>
     )
 }
