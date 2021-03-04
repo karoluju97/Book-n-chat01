@@ -1,5 +1,5 @@
-import firebase from 'firebase'
-l
+import firebase from "firebase";
+
 const firebaseConfig = {
     apiKey: "AIzaSyAXWj5M9W_2AdCgOaGChBB00HZMq7dWjTs",
     authDomain: "book-n-chat.firebaseapp.com",

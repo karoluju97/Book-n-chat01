@@ -6,20 +6,23 @@ import ImageIcon from '@material-ui/icons/Image';
 import CheckIcon from '@material-ui/icons/Check';
 import Post from './Post'
 import { db } from './firebase'
-import firebase from './firebase'
+import firebase from 'firebase'
 
 
 function HomeFeed() {
 
     const [input, setInput] = useState('');
     const [posts, setPosts] = useState([]);
-    
+
     useEffect(() => {
-        db.collection("posts").onSnapshot(snapshot => ( setPosts(snapshot.docs.map(doc => ({
-            id: doc.id,
-            data: doc.data(),
-        }        ))))
-    }, []);
+        db.collection("posts").orderBy('timestamp','desc').onSnapshot((snapshot) =>
+        setPosts(
+            snapshot.docs.map((doc) => ({
+                id: doc.id,
+                data: doc.data(),
+            }))
+        ))
+    }, [])
 
     const sendPost = e => {
         e.preventDefault();
@@ -29,8 +32,10 @@ function HomeFeed() {
             description: 'test',
             message: input,
             photoUrl:'',
-            timestamp: firebase.firestore.Fieldvalue.serverTimestamp()
-        }),
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        });
+
+        setInput("");
     };
 
     return (
@@ -50,10 +55,15 @@ function HomeFeed() {
             </div>
 
             {/* Posts */}
-            {posts.map((post) => (
-                <Post />
+            {posts.map(({ id, data: {name, description, message, photoUrl}}) => (
+                <Post 
+                key={id}
+                name={name}
+                description={description}
+                message={message}
+                photoUrl={photoUrl}
+                />
             ))}
-            <Post name='karol' description='this is a test' message='hello'/>
 
         </div>
     )
