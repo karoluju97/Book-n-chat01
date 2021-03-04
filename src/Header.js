@@ -21,10 +21,10 @@ function Header() {
             </div>
 
             <div className='header_right'>
-                <HeaderOptions icon={HomeIcon} title='Home'/>
-                <HeaderOptions icon={MessageIcon}title='Messages'/>
-                <HeaderOptions icon={NotificationsIcon}title='Notifications'/>
-                <HeaderOptions icon={SettingsIcon}title='Settings'/>
+                <HeaderOptions Icon={HomeIcon} title='Home'/>
+                <HeaderOptions Icon={MessageIcon}title='Messages'/>
+                <HeaderOptions Icon={NotificationsIcon}title='Notifications'/>
+                <HeaderOptions Icon={SettingsIcon}title='Settings'/>
                 <HeaderOptions avatar="" title='profile'/>
             </div>
         </div>
