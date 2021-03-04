@@ -1,22 +1,27 @@
 import React from 'react';
 import './App.css';
+import { selectUser } from './features/userSlice';
 import Header from './Header'
 import HomeFeed from './HomeFeed';
+import { useSelector } from 'react-redux'
+import Login from './Login'
 
 function App() {
-  return (
 
-    <div className="app">
+const user = useSelector(selectUser)
+
+return ( 
+<div className="app">
         {/*Header*/}
       <Header/>
 
-      {/*App Body*/}
-  
+      {!user ? ( <Login /> ) : (
+        <div className="app_body"> 
 
       {/*Feed*/}
       <HomeFeed/>
-
-
+      </div>
+      )}
     </div>
     
   );
