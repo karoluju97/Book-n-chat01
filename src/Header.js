@@ -6,8 +6,18 @@ import HomeIcon from '@material-ui/icons/Home';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MessageIcon from '@material-ui/icons/Message';
 import SettingsIcon from '@material-ui/icons/Settings';
+import { useDispatch } from 'react-redux'
+import { auth } from './firebase';
+import { logout }  from './features/userSlice'
 
 function Header() {
+    const dispatch = useDispatch()
+
+const logoutofApp = () => {
+    dispatch(logout())
+    auth.signOut()
+};
+
     return (
         <div className='header'>
             <div className='header_left'>
@@ -25,7 +35,7 @@ function Header() {
                 <HeaderOptions Icon={MessageIcon}title='Messages'/>
                 <HeaderOptions Icon={NotificationsIcon}title='Notifications'/>
                 <HeaderOptions Icon={SettingsIcon}title='Settings'/>
-                <HeaderOptions avatar="" title='profile'/>
+                <HeaderOptions title='profile' onClick={logoutofApp}/>
             </div>
         </div>
     )

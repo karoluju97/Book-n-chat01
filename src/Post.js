@@ -1,6 +1,6 @@
-import { Avatar } from "@material-ui/core"
-import React from 'react'
-import './Post.css'
+import { Avatar } from "@material-ui/core";
+import React from 'react';
+import './Post.css';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import InputOption from './InputOption'
 import CommentIcon from '@material-ui/icons/Comment';
@@ -27,7 +27,6 @@ function Post({ name, description, message, photoUrl }) {
                 <InputOption Icon={CommentIcon} title="Comment" />    
                 <InputOption Icon={ShareIcon} title="Share" />    
                 <InputOption Icon={BookIcon} title="Bookmark" />    
-
             </div>           
         </div>
     )
