@@ -5,6 +5,7 @@ import Header from './Header'
 import HomeFeed from './HomeFeed';
 import { useSelector } from 'react-redux'
 import Login from './Login'
+import Sidebar from './Sidebar'
 import {auth} from './firebase'
 import {useDispatch} from 'react-redux'
 
