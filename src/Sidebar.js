@@ -3,6 +3,7 @@ import React from "react";
 import "./Sidebar.css";
 
 
+
 function Sidebar() {
 
     const recentSearches = (topic) => (
@@ -19,8 +20,8 @@ function Sidebar() {
             <div className='sideProfile'>
                 <div className='sideTop'>
                  <Avatar className="sideProfile_avatar"/>
-                 <h2>user name</h2>
-                    <h4> email </h4>
+                 <h2>Karol Uju</h2>
+                    <h4>user@gmail.com</h4>
                 </div>
             </div> 
 

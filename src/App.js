@@ -8,6 +8,7 @@ import Login from './Login'
 import Sidebar from './Sidebar'
 import {auth} from './firebase'
 import {useDispatch} from 'react-redux'
+import Post from './Post'
 
 function App() {
 
@@ -36,14 +37,12 @@ return (
 <div className="app">
         {/*Header*/}
       <Header/>
-
       {!user ? ( <Login /> ) : (
         <div className="app_body"> 
-
       <Sidebar/>
-
-      {/*Feed*/}
       <HomeFeed/>
+      <Post />
+
       </div>
       )}
     </div>

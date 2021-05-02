@@ -9,6 +9,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import { useDispatch } from 'react-redux'
 import { auth } from './firebase';
 import { logout }  from './features/userSlice'
+import { Avatar } from '@material-ui/core';
 
 function Header() {
     const dispatch = useDispatch()
@@ -21,7 +22,7 @@ const logoutofApp = () => {
     return (
         <div className='header'>
             <div className='header_left'>
-                <img src="http://ibb.co/88Fcjvc" alt="logo"/>
+             <img src="https://ibb.co/PjLJ1Zt" alt="Book n Chat"/>
 
                 <div className='header_search'>
                     <SearchIcon />
@@ -35,7 +36,7 @@ const logoutofApp = () => {
                 <HeaderOptions Icon={MessageIcon}title='Messages'/>
                 <HeaderOptions Icon={NotificationsIcon}title='Notifications'/>
                 <HeaderOptions Icon={SettingsIcon}title='Settings'/>
-                <HeaderOptions title='profile' onClick={logoutofApp}/>
+                <HeaderOptions Icon={Avatar}title='profile' onClick={logoutofApp}/>
             </div>
         </div>
     )
